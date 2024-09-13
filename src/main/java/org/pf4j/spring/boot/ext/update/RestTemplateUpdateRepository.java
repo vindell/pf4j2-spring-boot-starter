@@ -24,12 +24,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.pf4j.update.FileDownloader;
-import org.pf4j.update.PluginInfo;
+import org.pf4j.update.*;
 import org.pf4j.update.PluginInfo.PluginRelease;
-import org.pf4j.update.SimpleFileDownloader;
-import org.pf4j.update.UpdateRepository;
 import org.pf4j.update.util.LenientDateTypeAdapter;
+import org.pf4j.update.verifier.CompoundVerifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
@@ -129,8 +127,13 @@ public class RestTemplateUpdateRepository implements UpdateRepository {
     public FileDownloader getFileDownloader() {
         return new SimpleFileDownloader();
     }
-    
-	public RestTemplate getRestTemplate() {
+
+    @Override
+    public FileVerifier getFileVerfier() {
+        return new CompoundVerifier();
+    }
+
+    public RestTemplate getRestTemplate() {
 		return restTemplate;
 	}
 

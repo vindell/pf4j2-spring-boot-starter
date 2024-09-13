@@ -17,6 +17,7 @@ package org.pf4j.spring.boot.ext;
 
 import org.pf4j.PluginManager;
 import org.pf4j.spring.ExtensionsInjector;
+import org.pf4j.spring.SpringPluginManager;
 import org.pf4j.spring.boot.ext.registry.Pf4jDynamicControllerRegistry;
 import org.pf4j.spring.boot.ext.utils.InjectorUtils;
 import org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory;
@@ -30,9 +31,9 @@ public class ExtendedExtensionsInjector extends ExtensionsInjector {
 	
 	protected Pf4jDynamicControllerRegistry dynamicControllerRegistry;
 	
-	public ExtendedExtensionsInjector(PluginManager pluginManager, 
-			Pf4jDynamicControllerRegistry dynamicControllerRegistry,
-			ApplicationContext applicationContext) {
+	public ExtendedExtensionsInjector(SpringPluginManager pluginManager,
+									  Pf4jDynamicControllerRegistry dynamicControllerRegistry,
+									  ApplicationContext applicationContext) {
 		super(pluginManager, (AbstractAutowireCapableBeanFactory) applicationContext.getAutowireCapableBeanFactory());
 		this.dynamicControllerRegistry = dynamicControllerRegistry;
 	}

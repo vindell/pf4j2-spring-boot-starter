@@ -38,9 +38,9 @@ public class MavenFileDownloader implements FileDownloader {
      * @param fileUrl the URI representing the file to download
      * @return the path of downloaded/copied file
      * @throws IOException in case of network or IO problems
-     * @throws PluginException in case of other problems
      */
-    public Path downloadFile(URL fileUrl) throws PluginException, IOException {
+    @Override
+    public Path downloadFile(URL fileUrl) throws IOException, PluginException {
         switch (fileUrl.getProtocol()) {
 	        case "http":
 	        case "https":
@@ -59,7 +59,7 @@ public class MavenFileDownloader implements FileDownloader {
      * @throws IOException if IO problems
      * @throws PluginException if validation fails or any other problems
      */
-    protected Path downloadFileHttp(URL fileUrl) throws IOException, PluginException {
+    protected Path downloadFileHttp(URL fileUrl) throws IOException {
     	
     	// http://com.itextpdf/pdfdebug/2.0.1
     	

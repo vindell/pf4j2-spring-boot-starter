@@ -77,6 +77,7 @@ public class ExtendedSpringPluginManager extends SpringPluginManager {
      * This method load, start plugins and inject controller extensions in Spring
      */
     @PostConstruct
+	@Override
     public void init() {
 
 		loadPlugins();

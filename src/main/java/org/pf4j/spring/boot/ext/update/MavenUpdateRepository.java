@@ -19,8 +19,10 @@ import java.net.URL;
 import java.util.Map;
 
 import org.pf4j.update.FileDownloader;
+import org.pf4j.update.FileVerifier;
 import org.pf4j.update.PluginInfo;
 import org.pf4j.update.UpdateRepository;
+import org.pf4j.update.verifier.CompoundVerifier;
 import org.springframework.cloud.deployer.resource.maven.MavenProperties;
 
 /**
@@ -82,7 +84,12 @@ public class MavenUpdateRepository implements UpdateRepository {
         return new MavenFileDownloader(mavenProperties);
     }
 
-	public PluginInfoProvider getPluginInfoProvider() {
+    @Override
+    public FileVerifier getFileVerfier() {
+        return new CompoundVerifier();
+    }
+
+    public PluginInfoProvider getPluginInfoProvider() {
 		return pluginInfoProvider;
 	}
 
