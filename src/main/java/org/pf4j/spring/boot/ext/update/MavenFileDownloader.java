@@ -59,7 +59,7 @@ public class MavenFileDownloader implements FileDownloader {
      * @throws IOException if IO problems
      * @throws PluginException if validation fails or any other problems
      */
-    protected Path downloadFileHttp(URL fileUrl) throws IOException {
+    protected Path downloadFileHttp(URL fileUrl) throws IOException , PluginException{
     	
     	// http://com.itextpdf/pdfdebug/2.0.1
     	
