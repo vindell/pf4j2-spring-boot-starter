@@ -15,18 +15,17 @@
  */
 package org.pf4j.spring.boot.ext;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import javax.annotation.PostConstruct;
-
+import jakarta.annotation.PostConstruct;
 import org.pf4j.ExtensionFactory;
 import org.pf4j.spring.SingletonSpringExtensionFactory;
 import org.pf4j.spring.SpringExtensionFactory;
 import org.pf4j.spring.SpringPluginManager;
 import org.pf4j.spring.boot.ext.registry.Pf4jDynamicControllerRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * TODO
